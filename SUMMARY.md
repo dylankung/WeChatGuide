@@ -33,5 +33,3 @@
  * [7.1 开发流程](chapter07/section01.md)
  * [7.2 自定义分享内容](chapter07/section02.md)
  * [7.2 上代码](chapter07/section03.md)
-* [8 传智时间](Introduction.md)
-
