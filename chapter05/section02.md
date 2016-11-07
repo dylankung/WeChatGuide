@@ -24,18 +24,7 @@ class UserHandler(tornado.web.RequestHandler):
             if ret.get("errcode"):
                 self.write(ret.get("errmsg", "获取个人信息错误"))
             else:
-                jsapi_ticket = JsapiTicket.get_jsapi_ticket()
-                timestamp = int(time.time())
-                sign_str = "jsapi_ticket=%s&noncestr=itcast&timestamp=%s&url=%s" % (jsapi_ticket, timestamp, "http://"+self.request.host+self.request.uri)
-                print sign_str
-                signature = hashlib.sha1(sign_str).hexdigest()
-                sign_data = {
-                    "appId":WECHAT_APPID,
-                    "timestamp":timestamp,
-                    "noncestr":"itcast",
-                    "signature":signature 
-                }
-                self.render("user.html", user=ret, sign_data=sign_data)
+                self.render("user.html", user=ret)
         else:
             self.write(ret.get("errmsg", "获取access_token错误"))
 ```
